@@ -86,13 +86,13 @@ void skills()
 
 void autonomous() 
 {
-	auto xDriveModel = std::dynamic_pointer_cast<XDriveModel>(chassis->getModel());
-	chassis->moveDistance(4_in);
+	//auto xDriveModel = std::dynamic_pointer_cast<XDriveModel>(chassis->getModel());
+	chassis->moveDistance(6_in);
 	
 	// int elapsedTime = 0;
 	// while(true)
 	// {
-	// 	xDriveModel->strafe(50);
+	// 	xDriveModel->forward(50);
 	// 	pros::delay(20);
 	// 	elapsedTime += 20;
 	// 	if(elapsedTime > 1000)

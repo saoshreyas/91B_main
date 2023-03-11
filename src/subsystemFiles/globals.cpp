@@ -32,11 +32,11 @@ ChassisControllerBuilder()
   .withGains( 
 
     //kP, kI, kD
-    {0.001, 0, 0.0001}, // Distance controller gains 
+    {0.002, 0, 0.0001}, // Distance controller gains 
 
-    {0.001, 0, 0.0001}, // Turn controller gains 
+    {0, 0, 0}, // Turn controller gains 
 
-    {0.001, 0, 0.0001}  // Angle controller gains (helps drive straight) 
+    {0, 0, 0}  // Angle controller gains (helps drive straight) 
 
   ) 
 
