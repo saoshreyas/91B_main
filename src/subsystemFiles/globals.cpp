@@ -34,9 +34,9 @@ ChassisControllerBuilder()
     //kP, kI, kD
     {0.002, 0, 0.0001}, // Distance controller gains 
 
-    {0, 0, 0}, // Turn controller gains 
+    {0.001, 0, 0.0001}, // Turn controller gains 
 
-    {0, 0, 0}  // Angle controller gains (helps drive straight) 
+    {0.00125, 0.0001, 0.0001}  // Angle controller gains (helps drive straight) 
 
   ) 
 
@@ -69,7 +69,8 @@ ChassisControllerBuilder()
 //Keeping Flywheel at Blue motor setting
 pros::Motor flywheel(7, pros::E_MOTOR_GEARSET_06, false, pros::E_MOTOR_ENCODER_COUNTS);
 pros::Motor intakeNormal(17, pros::E_MOTOR_GEARSET_36, false, pros::E_MOTOR_ENCODER_COUNTS);
-pros::Motor intakeExtra(19, pros::E_MOTOR_GEARSET_18, true, pros::E_MOTOR_ENCODER_COUNTS);
+pros::Motor intakeNormal2(14, pros::E_MOTOR_GEARSET_36, true, pros::E_MOTOR_ENCODER_COUNTS);
+pros::Motor intakeExtra(19, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_COUNTS);
 //NextFlywheel
 pros::Motor driverLeftBack(18, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_COUNTS);
 //AcrossFlywheel

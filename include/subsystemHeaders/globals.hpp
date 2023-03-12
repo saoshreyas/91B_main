@@ -9,6 +9,7 @@ extern std::shared_ptr<ChassisController> chassis;
 //MOTORS
 extern pros::Motor flywheel;
 extern pros::Motor intakeNormal;
+extern pros::Motor intakeNormal2;
 extern pros::Motor intakeExtra;
 extern pros::Motor driverLeftBack;
 extern pros::Motor driverLeftFront;

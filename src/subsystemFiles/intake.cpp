@@ -3,7 +3,8 @@
 //HELPER FUNCTIONS
 void setIntake(int power){
   intakeNormal = power;
-  intakeExtra = -power;
+  intakeNormal2 = power;
+  intakeExtra = power;
 }
 
 //DRIVER CONTROL FUNCTIONS

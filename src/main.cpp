@@ -88,6 +88,7 @@ void autonomous()
 {
 	//auto xDriveModel = std::dynamic_pointer_cast<XDriveModel>(chassis->getModel());
 	chassis->moveDistance(6_in);
+	chassis->turnAngle(90_deg);
 	
 	// int elapsedTime = 0;
 	// while(true)
@@ -121,11 +122,13 @@ void autonomous()
 void opcontrol() 
 {
 	auto xDriveModel = std::dynamic_pointer_cast<XDriveModel>(chassis->getModel());
+
 	while (true)
 	{
 		//control the drive
 		// setDriverMotors();
-		xDriveModel->xArcade(controller.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X) / 127, controller.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_Y) / 127, controller.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_X) / -127, 0.05);
+		xDriveModel->xArcade(controller.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X), controller.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_Y), controller.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_X) / -1, 0.05);
+		//xDriveModel->xArcade(controller.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X) / 127, controller.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_Y) / 127, controller.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_X) / -127, 0);
     //control the intake
 		setIntakeMotors();
 		//control the flywheel
