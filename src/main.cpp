@@ -45,9 +45,18 @@ void initialize() {
 	expansion1.set_value(false);
 	expansion2.set_value(false);
 
-	// inertial.reset();
-	// //allowing the inertial sensor to calibrate - takes 2 seconds but extended
-	// pros::delay(2500);
+	pros::Task indexerTask(indexTask);
+
+
+	inertial.reset();
+	while(inertial.is_calibrating())
+	{
+		pros::delay(20);
+	}
+
+  //string controls how many times it jolts
+	//good for debugging
+	controller.rumble("---");
 }
 
 /**
@@ -88,7 +97,9 @@ void autonomous()
 {
 	//auto xDriveModel = std::dynamic_pointer_cast<XDriveModel>(chassis->getModel());
 	chassis->moveDistance(6_in);
-	chassis->turnAngle(90_deg);
+	//turn 90 degrees and get between 89-91 degrees and is given 250 ms to settle seconds
+	//usual one
+	turnHeading(90, 1, 250);
 	
 	// int elapsedTime = 0;
 	// while(true)
@@ -134,7 +145,7 @@ void opcontrol()
 		//control the flywheel
 		setFlywheelMotor();
 		//control indexer
-		index();
+
 		//control expansion 
 		expand();
 		pros::delay(10);

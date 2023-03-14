@@ -1,3 +1,3 @@
 #include "main.h"
 
-void index();
+void indexTask(void * param);

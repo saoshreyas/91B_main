@@ -13,4 +13,7 @@ void setDriverMotors();
 //using voltage allows for faster movement
 void verticalMove(int units, int voltage);
 void horizontalMove();
-void turn();
+
+//tol = how precise, how close it can be to be fine because it will never be exact
+//more precise means takes longer
+void turnHeading(double target, double tol, double waitTime);
