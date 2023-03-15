@@ -114,20 +114,19 @@ void testing()
 	//usual one
 	std::cout<< std::to_string(inertial.get_heading()) + "\n";
 	turnHeading(90, 1, 250);
-	std::cout<< "hi \n";
 
-	chassis->moveDistance(3_in);
-	pros::delay(20);
+	// chassis->moveDistance(3_in);
+	// pros::delay(20);
 
-	std::cout<< std::to_string(inertial.get_heading()) + "\n";
-	turnHeading(0, 1, 250);
-	std::cout<< "hi \n";
-	pros::delay(20);
-	std::cout<< std::to_string(inertial.get_heading()) + "\n";
-	turnHeading(90, 1, 250);
-	std::cout<< "hi \n";
-	std::cout<< std::to_string(inertial.get_heading()) + "\n";
-	
+	// std::cout<< std::to_string(inertial.get_heading()) + "\n";
+	// turnHeading(0, 1, 250);
+	// std::cout<< "hi \n";
+	// pros::delay(20);
+	// std::cout<< std::to_string(inertial.get_heading()) + "\n";
+	// turnHeading(90, 1, 250);
+	// std::cout<< "hi \n";
+	// std::cout<< std::to_string(inertial.get_heading()) + "\n";
+
 	// int elapsedTime = 0;
 	// while(true)
 	// {

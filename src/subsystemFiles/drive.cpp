@@ -60,8 +60,8 @@ void turnHeading(double target, double tol, double waitTime)
   bool settled = false;
   double currentAngle = normalizeAngle360(inertial.get_heading());
   //tune later
-  double kP = 0.007;
-  double kD = 0;
+  double kP = 0.01;
+  double kD = 0.03;
   double error;
   double prevError = 0;
   double finalPower = 0;
