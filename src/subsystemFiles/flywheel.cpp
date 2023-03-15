@@ -29,7 +29,7 @@ void setFlywheelMotor()
   if(mode == 1)
   {
     //adjust the speed value
-    setFlywheel(-127);
+    setFlywheel(-75.25);
   }
 
 }

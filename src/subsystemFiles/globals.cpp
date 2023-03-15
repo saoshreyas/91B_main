@@ -32,7 +32,7 @@ ChassisControllerBuilder()
   .withGains( 
 
     //kP, kI, kD
-    {0.002, 0, 0.0001}, // Distance controller gains 
+    {0.0015, 0, 0.0001}, // Distance controller gains 
 
     {0.001, 0, 0.0001}, // Turn controller gains 
 
@@ -46,15 +46,15 @@ ChassisControllerBuilder()
   .withMaxVelocity(200) 
 
   //Logs what the controller does into the terminal
-  .withLogger
-  (
-    std::make_shared<Logger>
-    (
-        TimeUtilFactory::createDefault().getTimer(), // It needs a Timer
-        "/ser/sout", // Output to the PROS terminal
-        Logger::LogLevel::debug // Most verbose log level
-    )
-  )
+  // .withLogger
+  // (
+  //   std::make_shared<Logger>
+  //   (
+  //       TimeUtilFactory::createDefault().getTimer(), // It needs a Timer
+  //       "/ser/sout", // Output to the PROS terminal
+  //       Logger::LogLevel::debug // Most verbose log level
+  //   )
+  // )
 
   //Build Your Chassis Model! 
 
@@ -89,6 +89,6 @@ pros::ADIDigitalOut expansion2('G', false);
 pros::Controller controller(pros::E_CONTROLLER_MASTER);
 
 //SENSORS
-pros::Imu inertial(21);
+pros::Imu inertial(15);
 
 

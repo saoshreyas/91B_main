@@ -60,8 +60,8 @@ void turnHeading(double target, double tol, double waitTime)
   bool settled = false;
   double currentAngle = normalizeAngle360(inertial.get_heading());
   //tune later
-  double kP = 0.5;
-  double kD = 0.5;
+  double kP = 0.007;
+  double kD = 0;
   double error;
   double prevError = 0;
   double finalPower = 0;
@@ -69,6 +69,8 @@ void turnHeading(double target, double tol, double waitTime)
 
   while (!settled)
   {
+    std::cout<< std::to_string(inertial.get_heading()) + "\n";
+    currentAngle = normalizeAngle360(inertial.get_heading());
     error = normalizeAngle180(target - currentAngle);
 
     finalPower = (kP * error) + ((error - prevError) * kD);
