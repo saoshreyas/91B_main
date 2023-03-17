@@ -69,7 +69,7 @@ void turnHeading(double target, double tol, double waitTime)
 
   while (!settled)
   {
-    std::cout<< std::to_string(inertial.get_heading()) + "\n";
+    //std::cout<< std::to_string(inertial.get_heading()) + "\n";
     currentAngle = normalizeAngle360(inertial.get_heading());
     error = normalizeAngle180(target - currentAngle);
 

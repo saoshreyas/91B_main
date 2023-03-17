@@ -141,10 +141,52 @@ void testing()
 	// xDriveModel->stop();
 }
 
+void LSAuton()
+{
+		//get roller 1
+    timeMove(20);
+    setIntake(127);
+    pros::delay(100);
+    setIntake(0);
+    //back up from roller 1
+    chassis->moveDistance(-0.75_in);
+    //face disk 
+    turnHeading(135, 1, 250);
+		std::cout<< std::to_string(inertial.get_heading()) + "\n";
+    //move and intake disk
+    chassis->setMaxVelocity(90);
+    setIntake(-127);
+    chassis->moveDistance(1.5_in);
+		setIntake(0);
+		chassis->moveDistance(-1_in);
+		turnHeading(355,1,250);
+
+		setFlywheel(-110);
+    pros::delay(2250);
+    //shoot
+    indexer.set_value(false);
+    //can speed this up for faster shooting
+    pros::delay(100);
+    indexer.set_value(true);
+    pros::delay(300);
+    indexer.set_value(false);
+    //can speed this up for faster shooting
+    pros::delay(100);
+    indexer.set_value(true);
+    pros::delay(300);
+    indexer.set_value(false);
+    //can speed this up for faster shooting
+    pros::delay(100);
+    indexer.set_value(true);
+    pros::delay(200);
+    setFlywheel(0);
+    
+}
+
 void skills()
 {
 	//get roller 1
-    chassis->moveDistance(1.5_in);
+    timeMove(20);
     setIntake(127);
     pros::delay(200);
     setIntake(0);
@@ -152,19 +194,21 @@ void skills()
     chassis->moveDistance(-0.75_in);
     //face disk 
     turnHeading(135, 1, 250);
+		std::cout<< std::to_string(inertial.get_heading()) + "\n";
     //move and intake disk
-    chassis->setMaxVelocity(50);
+    chassis->setMaxVelocity(90);
     setIntake(-127);
     chassis->moveDistance(7_in);
     setIntake(0);
 
     //turn to roller 2
 		chassis->setMaxVelocity(127);
-    turnHeading(90, 2, 250);
+    turnHeading(90, 1.5, 250);
+		std::cout<< std::to_string(inertial.get_heading()) + "\n";
 
     //get roller 2
     chassis->setMaxVelocity(100);
-		timeMove(15);
+		timeMove(12);
     //chassis->moveDistance(1.35_in);
     setIntake(-127);
     pros::delay(200);
@@ -179,13 +223,14 @@ void skills()
 
     //drive towards highgoal
 		chassis->setMaxVelocity(127);
-    chassis->moveDistance(-14.5_in);
-    turnHeading(10.5, 1.5, 250);
+    chassis->moveDistance(-13.5_in);
+    turnHeading(9, 1.5, 250);
 		std::cout<< std::to_string(inertial.get_heading()) + "\n";
 
 
     //start Flywheel
-    setFlywheel(-85.25);
+		//-85.25
+    setFlywheel(-95);
     pros::delay(2250);
     //shoot
     indexer.set_value(false);
@@ -197,7 +242,7 @@ void skills()
     //can speed this up for faster shooting
     pros::delay(100);
     indexer.set_value(true);
-    pros::delay(200);
+    pros::delay(300);
     indexer.set_value(false);
     //can speed this up for faster shooting
     pros::delay(100);
@@ -207,32 +252,38 @@ void skills()
 
     //revert to facing normal direction
     turnHeading(0, 2, 250);
+		std::cout<< std::to_string(inertial.get_heading()) + "\n";
 
     //move backward to be line with first disk in row
-		chassis->moveDistance(7_in);
+		chassis->moveDistance(6_in);
 		turnHeading(270, 2, 250);
+		std::cout<< std::to_string(inertial.get_heading()) + "\n";
 		
 		//move towards disc line and intake disc one
-    chassis->setMaxVelocity(50);
+    chassis->setMaxVelocity(90);
     setIntake(-127);
     chassis->moveDistance(7_in);
     setIntake(0);
 
     //turn to face the disk line
 		turnHeading(225, 3, 250);
+		std::cout<< std::to_string(inertial.get_heading()) + "\n";
 		
 
     //intake all three disks
-		chassis->setMaxVelocity(50);
+		//87
+		chassis->setMaxVelocity(87);
     setIntake(-127);
     chassis->moveDistance(12_in);
     setIntake(0);
+		chassis->setMaxVelocity(127);
 
     //face high goal
-		turnHeading(315, 3, 250);
+		turnHeading(313, 3, 250);
+		std::cout<< std::to_string(inertial.get_heading()) + "\n";
 
     //shoot 
-    setFlywheel(-85.25);
+    setFlywheel(-100);
     pros::delay(2250);
     //shoot
     indexer.set_value(false);
@@ -253,23 +304,60 @@ void skills()
     setFlywheel(0);
 
     //face three stack
-		turnHeading(225, 3, 250);
+		turnHeading(220, 1.5, 250);
+		std::cout<< std::to_string(inertial.get_heading()) + "\n";
 
     //knock over three stack
-		chassis->moveDistance(12_in);
+		chassis->moveDistance(10_in);
 
     //intake disks in three stack
-		chassis->setMaxVelocity(50);
+		chassis->setMaxVelocity(90);
     setIntake(-127);
-    chassis->moveDistance(12_in);
+    chassis->moveDistance(6_in);
     setIntake(0);
 
     //turn to face high goal
+		turnHeading(265, 1.5, 250);
+		std::cout<< std::to_string(inertial.get_heading()) + "\n";
+
     //move towards high goal
+		// chassis->moveDistance(13.5_in);
+
     //shoot in high goal
+		setFlywheel(-120);
+    pros::delay(2250);
+    //shoot
+    indexer.set_value(false);
+    //can speed this up for faster shooting
+    pros::delay(100);
+    indexer.set_value(true);
+    pros::delay(300);
+    indexer.set_value(false);
+    //can speed this up for faster shooting
+    pros::delay(100);
+    indexer.set_value(true);
+    pros::delay(200);
+    indexer.set_value(false);
+    //can speed this up for faster shooting
+    pros::delay(100);
+    indexer.set_value(true);
+    pros::delay(200);
+    setFlywheel(0);
+
     //back up to point where robot is in front of roller #3
+		chassis->moveDistance(4_in);
+		
     //turn to face roller #3
+		turnHeading(180, 1.5, 250);
+		std::cout<< std::to_string(inertial.get_heading()) + "\n";
+
     //move forward and roll roller #3
+		chassis->moveDistance(.75_in);
+		timeMove(12);
+    setIntake(-127);
+    pros::delay(200);
+    setIntake(0);
+
     //back up 
     //face disk
     //move and intake disk
@@ -286,7 +374,9 @@ void autonomous()
 
 	//skills();
 
-	testing();
+	//testing();
+
+	LSAuton();
 
 }
 
