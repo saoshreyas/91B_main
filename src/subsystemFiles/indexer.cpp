@@ -8,7 +8,7 @@ void indexTask(void * param)
 {
   while(true)
   {
-    if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_R1))
+    if(controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R1))
     {
       indexer.set_value(false);
      //can speed this up for faster shooting
